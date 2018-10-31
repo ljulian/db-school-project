@@ -67,16 +67,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business Layer\BusinessLayer.cs" />
+    <Compile Include="Business Layer\IBusinessLayer.cs" />
     <Compile Include="Course.cs">
       <DependentUpon>SchoolDB.tt</DependentUpon>
     </Compile>
     <Compile Include="GetCoursesByStudentId_Result.cs">
       <DependentUpon>SchoolDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="IRepository.cs" />
+    <Compile Include="Data Layer\IRepository.cs" />
+    <Compile Include="Data Layer\IStandardRepository.cs" />
+    <Compile Include="Data Layer\IStudentRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository.cs" />
+    <Compile Include="Data Layer\Repository.cs" />
     <Compile Include="SchoolDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -95,12 +99,14 @@
     <Compile Include="Standard.cs">
       <DependentUpon>SchoolDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data Layer\StandardRepository.cs" />
     <Compile Include="Student.cs">
       <DependentUpon>SchoolDB.tt</DependentUpon>
     </Compile>
     <Compile Include="StudentAddress.cs">
       <DependentUpon>SchoolDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data Layer\StudentRepository.cs" />
     <Compile Include="Teacher.cs">
       <DependentUpon>SchoolDB.tt</DependentUpon>
     </Compile>
@@ -146,5 +152,6 @@
       <LastGenOutput>SchoolDB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

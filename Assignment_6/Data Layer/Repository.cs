@@ -6,14 +6,17 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assignment_6
+namespace Assignment_6.Data_Layer
 {
     public class Repository<T>: IRepository<T> where T: class
     {
         protected DbContext context;
+        protected DbSet<T> dbset;
+        
         public Repository(DbContext datacontext)
         {
             this.context = datacontext;
+            dbset = context.Set<T>();
         }
 
         public void Insert(T entity)
@@ -51,9 +54,19 @@ namespace Assignment_6
             return context.Set<T>().ToList();
         }
 
-        public T GetSingle(Func<T, bool> whereExp, params Expression<Func<T, object>>[] navigationProperties)
+        public T GetSingle(Func<T, bool> whereExp, params Expression<Func<T, 
+                           object>>[] navigationProperties)
         {
-            throw new NotImplementedException();
+            T item = null;
+            // returns the set of all entities of type T in context?
+            IQueryable<T> dbQuery = context.Set<T>();
+            foreach (Expression<Func<T, object>> navigationProperty in navigationProperties)
+            {
+                // loop through each navigation property in the context?
+                dbQuery = dbset.Include<T, object>(navigationProperty);
+            }
+            item = dbQuery.AsNoTracking().FirstOrDefault(whereExp);
+            return item;
         }
 
         public void Dispose()

@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assignment_6
+namespace Assignment_6.Data_Layer
 {
     interface IRepository<T>:IDisposable
     {

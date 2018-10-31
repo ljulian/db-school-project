@@ -10,6 +10,8 @@ namespace Assignment_6
     {
         static void Main(string[] args)
         {
+            // AsNoTracking. Ignore changes made of Dbcontext
+            //where: function looks for standard. 
         }
     }
 }
