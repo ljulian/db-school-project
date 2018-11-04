@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assignment_6.Business_Layer;
 
 namespace Assignment_6
 {
@@ -12,6 +13,9 @@ namespace Assignment_6
         {
             // AsNoTracking. Ignore changes made of Dbcontext
             //where: function looks for standard. 
+            IBusinessLayer businessLayer = new BusinessLayer();
+
+
         }
     }
 }
