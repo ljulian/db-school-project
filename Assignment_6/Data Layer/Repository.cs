@@ -71,7 +71,7 @@ namespace Assignment_6.Data_Layer
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            context.Dispose();
         }
     }
 }

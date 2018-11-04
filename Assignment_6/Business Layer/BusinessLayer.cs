@@ -21,6 +21,26 @@ namespace Assignment_6.Business_Layer
             _standardRepository.Insert(standard);
         }
 
+        public void AddStudent(Student student)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Standard> GetAllStandards()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Student> GetAllStudents()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Standard GetStandardByID(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Standard GetStandardByIDWithStudents(int id)
         {
             return _standardRepository.GetSingle(
@@ -33,6 +53,26 @@ namespace Assignment_6.Business_Layer
             return _standardRepository.GetSingle(
                 s => s.StandardName.Equals(name),
                 s => s.Students);
+        }
+
+        public Student GetStudentByID(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Student GetStudentByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveStudent(Student student)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateStudent(Student student)
+        {
+            throw new NotImplementedException();
         }
     }
 }

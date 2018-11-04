@@ -72,6 +72,7 @@
     <Compile Include="Course.cs">
       <DependentUpon>SchoolDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data Layer\TeacherRepository.cs" />
     <Compile Include="GetCoursesByStudentId_Result.cs">
       <DependentUpon>SchoolDB.tt</DependentUpon>
     </Compile>
