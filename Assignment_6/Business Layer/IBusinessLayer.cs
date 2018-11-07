@@ -17,6 +17,7 @@ namespace Assignment_6.Business_Layer
 
         IList<Teacher> GetAllTeachers();
         Teacher GetTeacherByID(int id);
+        Teacher GetTeacherByName(string name);
         void AddTeacher(Teacher teacher);
         // TODO do I have to implement two update functions?
         // TODO one that updates using the teacher's id and by name?

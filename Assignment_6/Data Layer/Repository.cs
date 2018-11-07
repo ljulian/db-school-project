@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity.SqlServer;
 
 namespace Assignment_6.Data_Layer
 {
@@ -34,13 +35,19 @@ namespace Assignment_6.Data_Layer
 
         public void Delete(T entity)
         {
+            SqlProviderServices.SqlServerTypesAssemblyName =
+                    "Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91";
             context.Entry(entity).State = EntityState.Deleted;
+            SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
             context.SaveChanges();
         }
 
         public void Update(T entity)
         {
+            SqlProviderServices.SqlServerTypesAssemblyName =
+                    "Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91";
             context.Entry(entity).State = EntityState.Modified;
+            SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
             context.SaveChanges();
         }
 

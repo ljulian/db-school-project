@@ -69,6 +69,13 @@ namespace Assignment_6.Business_Layer
             return _teacherRepository.GetSingle(t => t.TeacherId == id,
                                                 t => t.Courses); 
         }
+
+        public Teacher GetTeacherByName(string name)
+        {
+            return _teacherRepository.GetSingle(x => x.TeacherName.Equals(name),
+                                                x => x.Courses);
+        }
+
         public void AddTeacher(Teacher teacher)
         {
             _teacherRepository.Insert(teacher);
