@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -12,13 +13,19 @@ namespace Assignment_6.Data_Layer
     {
         protected DbContext context;
         protected DbSet<T> dbset;
-        
+        //private SchoolDBEntities schoolDBEntities;
+
         public Repository(DbContext datacontext)
         {
             this.context = datacontext;
             dbset = context.Set<T>();
         }
-
+        /**
+        public Repository(SchoolDBEntities schoolDBEntities)
+        {
+            this.schoolDBEntities = schoolDBEntities;
+        }
+        */
         public void Insert(T entity)
         {
             context.Entry(entity).State = EntityState.Added;

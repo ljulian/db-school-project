@@ -12,17 +12,14 @@ namespace Assignment_6.Business_Layer
         private readonly IStandardRepository _standardRepository;
         private readonly ITeacherRepository _teacherRepository;
         private readonly IStudentRepository _studentRepository;
-        
+        private readonly ICourseRepository _courseRepository;
+
         public BusinessLayer()
         {
             _standardRepository = new StandardRepository();
             _teacherRepository = new TeacherRepository();
             _studentRepository = new StudentRepository();
-        }
-
-        public void AddStandard(Standard standard)
-        {
-            _standardRepository.Insert(standard);
+            _courseRepository = new CourseRepository();
         }
 
         public IList<Standard> GetAllStandards()
@@ -42,6 +39,23 @@ namespace Assignment_6.Business_Layer
             return _standardRepository.GetSingle(
                 s => s.StandardName.Equals(name),
                 s => s.Students);
+        }
+
+        public void AddStandard(Standard standard)
+        {
+            _standardRepository.Insert(standard);
+        }
+
+
+
+        public void UpdateStandard(Standard standard)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveStandard(Standard standard)
+        {
+            throw new NotImplementedException();
         }
 
         public IList<Teacher> GetAllTeachers()
@@ -99,6 +113,37 @@ namespace Assignment_6.Business_Layer
         public void UpdateStudent(Student student)
         {
             _studentRepository.Update(student);
+        }
+
+        public IList<Course> GetAllCourses()
+        {
+            return (IList<Course>)_courseRepository.GetAll();
+        }
+
+        public Course GetCourseByID(int id)
+        {
+            return _courseRepository.GetById(id);
+        }
+
+        public Course GetCourseByName(string name)
+        {
+            return _courseRepository.GetSingle(x => x.CourseName.Equals(name), x => x.Students);
+        }
+
+        public void AddCourse(Course course)
+        {
+            _courseRepository.Insert(course);
+
+        }
+
+        public void UpdateCourse(Course course)
+        {
+            _courseRepository.Update(course);
+        }
+
+        public void RemoveCourse(Course course)
+        {
+            _courseRepository.Delete(course);
         }
     }
 }
