@@ -65,7 +65,7 @@ namespace Assignment_6.Data_Layer
         // students from the context?
         public IEnumerable<T> GetAll()
         {
-            return context.Set<T>().ToList();
+            return dbset.AsNoTracking().ToList();
         }
 
         public T GetSingle(Func<T, bool> whereExp, params Expression<Func<T, 

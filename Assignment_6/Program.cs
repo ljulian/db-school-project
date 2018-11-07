@@ -155,8 +155,7 @@ namespace Assignment_6
                         break;
                 }
             } // end of while loop
-
-            Console.ReadLine();
+            
         }
 
         static void addTeacher(IBusinessLayer bl, string teacherName, 
