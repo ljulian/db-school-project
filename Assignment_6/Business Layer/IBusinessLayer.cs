@@ -12,6 +12,8 @@ namespace Assignment_6.Business_Layer
         Standard GetStandardByID(int id);
         Standard GetStandardByName(string name);
         void AddStandard(Standard standard);
+        void UpdateStandard(Standard standard);
+        void RemoveStandard(Standard standard);
 
         IList<Teacher> GetAllTeachers();
         Teacher GetTeacherByID(int id);
@@ -27,5 +29,12 @@ namespace Assignment_6.Business_Layer
         void AddStudent(Student student);
         void UpdateStudent(Student student);
         void RemoveStudent(Student student);
+
+        IList<Course> GetAllCourses();
+        Course GetCourseByID(int id);
+        Course GetCourseByName(string name);
+        void AddCourse(Course cousre);
+        void UpdateCourse(Course course);
+        void RemoveCourse(Course course);
     }
 }

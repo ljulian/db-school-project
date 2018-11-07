@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -72,6 +72,8 @@
     <Compile Include="Course.cs">
       <DependentUpon>SchoolDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data Layer\CourseRepository.cs" />
+    <Compile Include="Data Layer\ICourseRepository.cs" />
     <Compile Include="Data Layer\ITeacherRepository.cs" />
     <Compile Include="Data Layer\TeacherRepository.cs" />
     <Compile Include="GetCoursesByStudentId_Result.cs">
@@ -148,10 +150,17 @@
       <DependentUpon>SchoolDB.edmx</DependentUpon>
       <LastGenOutput>SchoolDB.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="SchoolDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SchoolDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SchoolDB.edmx</DependentUpon>
       <LastGenOutput>SchoolDB.cs</LastGenOutput>
+    </Content>
+    <Content Include="SchoolDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>SchoolDB.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup />
