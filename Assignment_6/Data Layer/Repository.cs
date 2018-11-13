@@ -62,7 +62,8 @@ namespace Assignment_6.Data_Layer
 
         public IQueryable<T> SearchFor(Expression<Func<T, bool>> predicate)
         {
-            return dbset.Where(predicate);
+            var name = dbset.Where(predicate);
+            return name;
         }
 
         // Student can be specified to get a collection of

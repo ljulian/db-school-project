@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Assignment_6.Business_Layer
 {
-    class BusinessLayer:IBusinessLayer
+    class BusinessLayer : IBusinessLayer
     {
         private readonly IStandardRepository _standardRepository;
         private readonly ITeacherRepository _teacherRepository;
@@ -154,5 +154,11 @@ namespace Assignment_6.Business_Layer
         {
             _courseRepository.Delete(course);
         }
+
+        public IList<Course> GetAllCoursesOfTeacher(Teacher teacher)
+        {
+            return _courseRepository.SearchFor(x => x.TeacherId.Equals(teacher.TeacherId)).ToList();
+        }
+
     }
 }
