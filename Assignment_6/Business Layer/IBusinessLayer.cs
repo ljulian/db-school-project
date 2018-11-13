@@ -37,5 +37,7 @@ namespace Assignment_6.Business_Layer
         void AddCourse(Course cousre);
         void UpdateCourse(Course course);
         void RemoveCourse(Course course);
+
+        IList<Course> GetAllCoursesOfTeacher(Teacher teacher);
     }
 }

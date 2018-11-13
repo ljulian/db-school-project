@@ -26,7 +26,8 @@ namespace Assignment_6
                 Console.WriteLine("6) Update teachers");
                 Console.WriteLine("7) Delete teachers");
                 Console.WriteLine("8) Create teachers");
-                Console.WriteLine("9) End the program");
+                Console.WriteLine("9) See the list of courses of a teacher");
+                Console.WriteLine("10) End the program");
                 int selection = Convert.ToInt32(Console.ReadLine());
                 switch (selection)
                 {
@@ -131,6 +132,33 @@ namespace Assignment_6
                         newTeacher = null;
                         break;
                     case 9:
+                        Console.WriteLine("1) Choose a teacher by searching teacher ID");
+                        Console.WriteLine("2) Choose a teacher by searching teacher name");
+                        int searchSelection2 = Convert.ToInt32(Console.ReadLine());
+                        switch (searchSelection2)
+                        {
+                            case 1:
+                                Console.Write("Enter the ID of the teacher: ");
+                                int id = Convert.ToInt32(Console.ReadLine());
+                                Teacher teacher = businessLayer.GetTeacherByID(id);
+                                var coursesOfTeacher = businessLayer.GetAllCoursesOfTeacher(teacher);
+                                foreach (var something in coursesOfTeacher)
+                                {
+                                    Console.WriteLine(something);
+                                }
+                                break;
+                            case 2:
+                                Console.Write("Enter the name of the teacher: ");
+                                string teacherName = Console.ReadLine();
+                                Teacher teacher2 = businessLayer.GetTeacherByName(teacherName);
+                                Console.WriteLine(businessLayer.GetAllCoursesOfTeacher(teacher2));
+                                break;
+
+                        }
+
+
+                        break;
+                    case 10:
                         menuSwitch = false;
                         break;
                 }
