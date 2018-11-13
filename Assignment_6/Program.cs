@@ -9,11 +9,12 @@ namespace Assignment_6
 {
     class Program
     {
+
+        static IBusinessLayer businessLayer = new BusinessLayer();
         static void Main(string[] args)
         {
             // AsNoTracking. Ignore changes made of Dbcontext
             //where: function looks for standard. 
-            IBusinessLayer businessLayer = new BusinessLayer();
             bool menuSwitch = true;
             addTeacher(businessLayer, "Jim Neutron", 2);
             while (menuSwitch)

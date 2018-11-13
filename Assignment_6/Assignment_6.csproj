@@ -74,6 +74,7 @@
     <Compile Include="Business Layer\IBusinessLayer.cs" />
     <Compile Include="Course.cs">
       <DependentUpon>SchoolDB.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Data Layer\CourseRepository.cs" />
     <Compile Include="Data Layer\ICourseRepository.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Data Layer\TeacherRepository.cs" />
     <Compile Include="GetCoursesByStudentId_Result.cs">
       <DependentUpon>SchoolDB.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Data Layer\IRepository.cs" />
     <Compile Include="Data Layer\IStandardRepository.cs" />
@@ -92,34 +94,42 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SchoolDB.Context.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="SchoolDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SchoolDB.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="SchoolDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SchoolDB.edmx</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Standard.cs">
       <DependentUpon>SchoolDB.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Data Layer\StandardRepository.cs" />
     <Compile Include="Student.cs">
       <DependentUpon>SchoolDB.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="StudentAddress.cs">
       <DependentUpon>SchoolDB.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Data Layer\StudentRepository.cs" />
     <Compile Include="Teacher.cs">
       <DependentUpon>SchoolDB.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="View_StudentCourse.cs">
       <DependentUpon>SchoolDB.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -128,9 +138,11 @@
     <EntityDeploy Include="SchoolDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SchoolDB.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EntityDeploy>
     <None Include="SchoolDB.edmx.diagram">
       <DependentUpon>SchoolDB.edmx</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -153,17 +165,19 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SchoolDB.edmx</DependentUpon>
       <LastGenOutput>SchoolDB.Context.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SchoolDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SchoolDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SchoolDB.edmx</DependentUpon>
       <LastGenOutput>SchoolDB.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SchoolDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>SchoolDB.mdf</DependentUpon>
     </Content>
     <Content Include="SqlServerTypes\readme.htm" />
