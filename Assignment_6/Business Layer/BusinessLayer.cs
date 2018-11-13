@@ -67,8 +67,9 @@ namespace Assignment_6.Business_Layer
         // TODO should this be two functions?
         public Teacher GetTeacherByID(int id)
         {
-            return _teacherRepository.GetSingle(t => t.TeacherId == id,
-                                                t => t.Courses); 
+            //return _teacherRepository.GetSingle(t => t.TeacherId == id,
+            //t => t.Courses);
+            return _teacherRepository.GetById(id);
         }
 
         public Teacher GetTeacherByName(string name)

@@ -15,6 +15,7 @@ namespace Assignment_6
             //where: function looks for standard. 
             IBusinessLayer businessLayer = new BusinessLayer();
             bool menuSwitch = true;
+            addTeacher(businessLayer, "Jim Neutron", 2);
             while (menuSwitch)
             {
                 Console.WriteLine("1) See the list of courses");
@@ -33,35 +34,13 @@ namespace Assignment_6
                         IList<Course> courses = businessLayer.GetAllCourses();
                         foreach (Course course in courses)
                         {
-                            Console.WriteLine("Course Name: " + course.CourseName + ", Course ID: " + course.CourseId);
+                            Console.WriteLine("Course Name: {0}, Course ID: {1}, Assigned Teacher ID: {2}",
+                                              course.CourseName, course.CourseId, course.TeacherId);
                         }
                         break;
 
                     case 2:
-                        Console.WriteLine("1) Update by searching course ID");
-                        Console.WriteLine("2) Update by searching course name");
-                        int selection2 = Convert.ToInt32(Console.ReadLine());
-                        switch (selection2)
-                        {
-                            case 1:
-                                Console.Write("Enter the ID of the course: ");
-                                int id = Convert.ToInt32(Console.ReadLine());
-                                Course course = businessLayer.GetCourseByID(id);
-                                Console.Write("Enter the new Name for " + course.CourseName + ": ");
-                                string newName = Console.ReadLine();
-                                course.CourseName = newName;
-                                businessLayer.UpdateCourse(course);
-                                break;
-                            case 2:
-                                Console.Write("Enter the name of the course: ");
-                                string courseName = Console.ReadLine();
-                                Course course2 = businessLayer.GetCourseByName(courseName);
-                                Console.Write("Enter the new Name for " + course2.CourseName + ": ");
-                                string newName2 = Console.ReadLine();
-                                course2.CourseName = newName2;
-                                businessLayer.UpdateCourse(course2);
-                                break;
-                        }
+                        ModifyCourse(businessLayer);
                         break;
 
                     case 3:
@@ -149,6 +128,7 @@ namespace Assignment_6
                         string newTeacherName = Console.ReadLine();
                         Teacher newTeacher = new Teacher { TeacherName = newTeacherName };
                         businessLayer.AddTeacher(newTeacher);
+                        newTeacher = null;
                         break;
                     case 9:
                         menuSwitch = false;
@@ -181,6 +161,57 @@ namespace Assignment_6
                 };
             }
             bl.AddTeacher(newTeach);
+        }
+
+        static void ModifyCourse(IBusinessLayer bl)
+        {
+            bool isQuit = false;
+            while (!isQuit)
+            {
+                string[] menuList = {
+                "Change teacher assigned to a course",
+                "Change a course's name",
+                "Quit"
+                };
+                PrintMenu(menuList);
+                int choice = Convert.ToInt32(Console.ReadLine());
+                switch(choice)
+                {
+                    case 1:
+                        Console.Write("Enter the ID of the course: ");
+                        int courseToReassignId = Convert.ToInt32(Console.ReadLine());
+                        Course courseToReasign = bl.GetCourseByID(courseToReassignId);
+                        Console.Write("Enter the ID of the teacher: ");
+                        int teacherId = Convert.ToInt32(Console.ReadLine());
+                        Teacher teacher = bl.GetTeacherByID(teacherId);
+                        courseToReasign.TeacherId = teacher.TeacherId;
+                        bl.UpdateCourse(courseToReasign);
+                        break;
+
+                    case 2:
+                        Console.Write("Enter the ID of the course: ");
+                        int id = Convert.ToInt32(Console.ReadLine());
+                        Course course = bl.GetCourseByID(id);
+                        Console.Write("Enter the new Name for " + course.CourseName + ": ");
+                        string newName = Console.ReadLine();
+                        course.CourseName = newName;
+                        bl.UpdateCourse(course);
+                        break;
+                    case 3:
+                        isQuit = true;
+                        break;
+
+                }
+            }
+        }
+
+        static public void PrintMenu(string[] menuOptions)
+        {
+            for (int i = 0; i < menuOptions.Length; i++)
+            {
+
+                Console.WriteLine((i + 1).ToString() + " " + menuOptions[i]);
+            }
         }
 
         static void print_all_standards(IBusinessLayer bl)
