@@ -141,10 +141,10 @@ namespace Assignment_6
                                 Console.Write("Enter the ID of the teacher: ");
                                 int id = Convert.ToInt32(Console.ReadLine());
                                 Teacher teacher = businessLayer.GetTeacherByID(id);
-                                var coursesOfTeacher = businessLayer.GetAllCoursesOfTeacher(teacher);
-                                foreach (var something in coursesOfTeacher)
+                                IList<Course> coursesOfTeacher = businessLayer.GetAllCoursesOfTeacher(teacher);
+                                foreach (Course something in coursesOfTeacher)
                                 {
-                                    Console.WriteLine(something);
+                                    Console.WriteLine("Course Name: {0}, Course ID: {1}", something.CourseName, something.CourseId);
                                 }
                                 break;
                             case 2:

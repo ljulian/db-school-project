@@ -157,7 +157,7 @@ namespace Assignment_6.Business_Layer
 
         public IList<Course> GetAllCoursesOfTeacher(Teacher teacher)
         {
-            return _courseRepository.SearchFor(x => x.TeacherId.Equals(teacher.TeacherId)).ToList();
+            return _courseRepository.SearchFor(x => x.TeacherId == teacher.TeacherId).ToList();
         }
 
     }
