@@ -5,6 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Assignment_6.Business_Layer;
 
+/**
+ * Hyunwoo Kim, Luis Julian
+ * CECS 475 - Lab 6
+ * 2018-11-13
+ * */
 namespace Assignment_6
 {
     class Program
